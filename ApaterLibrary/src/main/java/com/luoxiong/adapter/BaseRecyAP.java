@@ -79,7 +79,7 @@ public abstract class BaseRecyAP<T> extends RecyclerView.Adapter<RecyclerView.Vi
 
 
     //自定义加载更多布局
-    private View mLoadMoreView;
+    private  View mLoadMoreView;
 
     /**
      * 通过setEmptyView传递过来
@@ -631,10 +631,10 @@ public abstract class BaseRecyAP<T> extends RecyclerView.Adapter<RecyclerView.Vi
     }
 
 
-    private View mLoadingContaint;
-    private View mLoadFailContaint;
+    private  View mLoadingContaint;
+    private  View mLoadFailContaint;
 
-    public class LoadMoreVH extends RecyclerView.ViewHolder {
+    public   class LoadMoreVH extends RecyclerView.ViewHolder {
         //loadmore最外层容器
         public FrameLayout loadMoreRootContain;
         //加载中容器
@@ -664,6 +664,7 @@ public abstract class BaseRecyAP<T> extends RecyclerView.Adapter<RecyclerView.Vi
             });
         }
     }
+
 
     /**
      * 显示加载中的布局
@@ -747,11 +748,8 @@ public abstract class BaseRecyAP<T> extends RecyclerView.Adapter<RecyclerView.Vi
 
     /**
      * 设置空状态的view
-     *
-     * @param emptyViewParent 如果需要EmptyView的高度占满RecyclerView，则此参数必填；
-     *                        传null，则保持EmptyView的自有高度
      */
-    public void setEmptyView(@Nullable View emptyView, @Nullable RecyclerView emptyViewParent) {
+    public void setEmptyView(@Nullable View emptyView) {
         if (this.mEmptyView == emptyView) {
             return;
         }

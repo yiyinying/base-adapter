@@ -67,7 +67,7 @@ public class Frag2 extends BaseFrag implements View.OnClickListener {
     private void initAp() {
         mRecyclerViewParent.setRefreshing(true);
         mAdapter1 = new MyAdapter1(getContext(), mDatas, mRecyclerViewParent);
-
+        //添加头
         View headView = LayoutInflater.from(getActivity()).inflate(R.layout.head_layout, mRecyclerViewParent, false);
         mAdapter1.setHeadView(headView);
 
@@ -77,7 +77,7 @@ public class Frag2 extends BaseFrag implements View.OnClickListener {
 
     private void setEmptyLayout() {
         View vvv = LayoutInflater.from(getActivity()).inflate(R.layout.empty_layout, mRecyclerViewParent, false);
-        mAdapter1.setEmptyView(vvv, null);
+        mAdapter1.setEmptyView(vvv);
     }
 
     private void setOnRefresh() {

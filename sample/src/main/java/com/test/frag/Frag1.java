@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mylibrary.Utils;
 import com.luoxiong.adapter.BaseRecyAP;
 import com.luoxiong.interfac.IAdapterHolder;
 import com.luoxiong.tools.LogUtils;
@@ -80,8 +79,8 @@ public class Frag1 extends BaseFrag implements View.OnClickListener {
     }
 
     private void setEmptyLayout() {
-        View vvv = LayoutInflater.from(getActivity()).inflate(R.layout.empty_layout, mRecyclerViewParent, false);
-        mAdapter1.setEmptyView(vvv, null);
+        View v = LayoutInflater.from(getActivity()).inflate(R.layout.empty_layout, mRecyclerViewParent, false);
+        mAdapter1.setEmptyView(v);
     }
 
 

@@ -35,6 +35,7 @@ public class Frag3 extends BaseFrag implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.frag3_layout, container, false);
+
         mRecyclerViewParent = (RecyclerViewParent) view.findViewById(R.id.id_RecyclerViewParent);
         mRecyclerViewParent.setLinearLayoutManager(true);
         view.findViewById(R.id.add).setOnClickListener(this);
@@ -59,13 +60,14 @@ public class Frag3 extends BaseFrag implements View.OnClickListener {
 
 
     private void initAp() {
+        //禁止下拉刷新
         mRecyclerViewParent.setRefreshEnable(false);
         mAdapter1 = new MyAdapter1(getContext(), mDatas, mRecyclerViewParent);
         mRecyclerViewParent.setAdapter(mAdapter1);
         mRecyclerViewParent.setOnRecyclerViewListener(new RecyclerViewParent.OnRecyclerViewListener() {
             @Override
             public void onItemClick(int position) {
-                LogUtils.d("你点击的是："+position);
+
             }
 
             @Override
@@ -79,7 +81,7 @@ public class Frag3 extends BaseFrag implements View.OnClickListener {
         LogUtils.d("Frag1。。。setEmptyLayout()。。。。"+mAdapter1.getEmptyCount());
 
         View vvv = LayoutInflater.from(getActivity()).inflate(R.layout.empty_layout, mRecyclerViewParent, false);
-        mAdapter1.setEmptyView(vvv, null);
+        mAdapter1.setEmptyView(vvv);
     }
 
 
