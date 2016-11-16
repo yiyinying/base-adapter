@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="#3f00"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+    >
+
+    <RelativeLayout
+        android:id="@+id/loading_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+     >
+
+        <com.luoxiong.view.MyFootImageView
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_centerInParent="true"
+            android:background="@drawable/foot_loading"
+            />
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/load_fail_fl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:id="@+id/tv_load_fail"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Refresh" />
+    </FrameLayout>
+
+</RelativeLayout>

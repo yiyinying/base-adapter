@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- 测试图片 -->
+
+
+
+    <color name="Black4">#121415</color>
+    <color name="Black5">#242125</color>
+    <color name="Black6">#313641</color>
+
+    <color name="White">#ffffff</color>
+    <!--罗雄添加-->
+    <color name="c1">#FF696E</color>
+    <color name="c2">#4A90E2</color>
+    <!--默认灰色分割线-->
+    <color name="c3">#E5E5E5</color>
+    <color name="c4">#999999</color>
+    <color name="c5">#A1E8B1</color>
+    <color name="c6">#E64545</color>
+    <color name="c7">#cccccc</color>
+    <color name="c8">#3D5372</color>
+    <color name="c9">#a6a6a6</color>
+    <color name="c10">#EEEEEE</color>
+    <!--app 字体默认颜色-->
+    <color name="c11">#666666</color>
+    <!--Activity页面默认底色-->
+    <color name="c12">#FAFAFA</color>
+    <!--TextView  hint颜色-->
+    <color name="c13">#9B9B9B</color>
+    <color name="c14">#FFF0F0</color>
+    <color name="c15">#E2E2E2</color>
+    <color name="c16">#F9C7C9</color>
+    <color name="white">#ffffff</color>
+</resources>

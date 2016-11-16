@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LxBaseRecyUtils</string>
+    <string name="for_order_over">For order over %s</string>
+</resources>
