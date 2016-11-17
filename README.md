@@ -40,7 +40,10 @@
 *  可以设置空布局
 *  提供了getConvertedData(data, type)方法来对item传入的数据做转换，方便拆包和提升item的复用性
 
+### 示例
 
+![](./jpg/ios_demo.png)
+![](./jpg/a.png)
 
 #1、设置布局文件
 
@@ -75,10 +78,43 @@
 				//第1个参数： pageSize的意思，如果datas.size只有19条，默认就不再触发加载更多逻辑
 				mAdapter1.addDatas(20, datas，true);
             }
+	
+##3、列表只有一种类型 或者 多种类型的使用方法
 
+		class MyAdapter1 extends BaseRecyAP<TextBean> {
+		        public MyAdapter1(Context context, List<TextBean> datas,
+		                          RecyclerViewParent recyParent) {
+		            super(context, datas, recyParent);
+		        }
 
+				//默认列表只有一种Holder
+		        @Override
+		        public IAdapterHolder createItem(Object type) {
+		            return new TextBeanHolder();
+		        }
 
-##3、具体使用步骤
+				//多种holder使用，需要手动重写这个方法
+		  		 @Override
+		        public String getItemType(ModelData bean) {
+		            return bean.type;
+		        }
+		
+		        @Override
+		        public IAdapterHolder createItem(Object type) {
+		            switch (((String) type)) {
+		                case "text":
+		                    return new TextHolder();
+		                case "button":
+		                    return new ButtonHolder();
+		                case "image":
+		                    return new ImgHolder();
+		                default:
+		                    throw new IllegalArgumentException("不合法的type");
+		            }
+		        }
+		    }
+	
+##4、具体使用步骤
  
 		
         mRecyclerViewParent = (RecyclerViewParent) view.findViewById(R.id.id_RecyclerViewParent);
@@ -109,23 +145,13 @@
         });
 
 		//也可以自定义加载更多的布局
-		  mAdapter1.setLoadMoreView(...
-		)
-					
-			class MyAdapter1 extends BaseRecyAP<TextBean> {
-		        public MyAdapter1(Context context, List<TextBean> datas,
-		                          RecyclerViewParent recyParent) {
-		            super(context, datas, recyParent);
-		        }
+		  mAdapter1.setLoadMoreView(...)
 		
-		        @Override
-		        public IAdapterHolder createItem(Object type) {
-		            return new TextBeanHolder();
-		        }
-		    }
+					
+			
 		
 
-##3、上面的TextBeanHolder是全局复用的。更多方法请看Demo
+##5、上面的TextBeanHolder是全局复用的。更多方法请看Demo
 
 ### 设计思路
 

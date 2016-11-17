@@ -150,7 +150,6 @@ public class Frag1 extends BaseFrag implements View.OnClickListener {
         @Override
         public String getItemType(ModelData bean) {
             return bean.type;
-            //return "text";
         }
 
         @Override
