@@ -50,12 +50,37 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
   
+#2、使用加载更多必看
+##如果列表有加载更多，服务器一般会以分页的形式返回数据，我们怎么才知道是否是最后一页呢？服务器端大概有2种告诉我们的方式。
+###1、告诉你Item总数,比如总共有100条数据，当我们每次以20条加载，加载完所有数据后，加载更多隐藏，不在触发加载更多
+
+###2、我们每次请求20条数据，假如请求第4次的时候服务器返回19条，此时说明服务器没有数据了，不在触发加载更多
+#### 现在这些通通不是问题，只需一行代码搞定
+				
+		    //设置Item总数
+         mAdapter1.setItemTotal(100);
+		
+		//只有调用这个方法才会开启加载更多
+		mAdapter1.setOnLoadMoreListener(){
+		@Override
+            public void onLoadMore() {
+            
+                 List<ModelData> datas = DataManager.loadModelData(5);
+				 //服务器以第1种方式告诉我们Item总数量
+				 //第2个参数： true是表示加载更多，false表示下拉刷新 
+				 //第3个参数：Item总数，和上面那个方法的作用一样，如果没有调用setItemTotal，这里应该传具体的Item总数，否则传0或者-1即可。
+                 mAdapter1.addDatas(datas, true, 0);
+               	
+				//服务器以第2种方式告诉我们是否有加载更多
+				//第1个参数： pageSize的意思，如果datas.size只有19条，默认就不再触发加载更多逻辑
+				mAdapter1.addDatas(20, datas，true);
+            }
 
 
 
-##2、使用步骤
-```
-
+##3、具体使用步骤
+ 
+		
         mRecyclerViewParent = (RecyclerViewParent) view.findViewById(R.id.id_RecyclerViewParent);
         mRecyclerViewParent.setLinearLayoutManager(true);
   		//禁止下拉刷新
@@ -101,7 +126,7 @@
 		
 ```
 
-##3、上面的TextBeanHolder是全局复用的，具体使用方法可以下载Demo
+##3、上面的TextBeanHolder是全局复用的。更多方法请看Demo
 
 ### 设计思路
 
